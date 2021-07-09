@@ -164,14 +164,14 @@ p:last-child {
 }
 .tm-banner-bg {
   background: url(../img/banner2.jpg) center top no-repeat;
-  min-height: 720px;
+  min-height: 600px;
   position: relative;
 }
 .tm-banner-row {
   position: relative;
   z-index: 100;
   justify-content: center;
-  padding-top: 100px;
+  padding-top: 70px;
 }
 .tm-banner-row-header {
   text-align: center;
