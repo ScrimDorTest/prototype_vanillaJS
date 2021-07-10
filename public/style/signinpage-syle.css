@@ -49,16 +49,25 @@ header {
     color : black;
 }
 
+
 /*Header - login*/
 .header-login {
     background: #33312c;
-    color : white;
+
     padding : 0.7rem;
     transform: translateY(10%);
     border-radius: 0.3rem;
     cursor: pointer;
     outline : none;
     font-size: 1.2rem;
+}
+
+.header-login__a {
+    color : white;
+}
+
+.header-login a {
+    color : white;
 }
 
 .header-login:hover {

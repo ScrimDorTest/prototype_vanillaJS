@@ -52,7 +52,6 @@ header {
 /*Header - login*/
 .header-login {
     background: #33312c;
-    color : white;
     padding : 0.7rem;
     transform: translateY(10%);
     border-radius: 0.3rem;
@@ -63,6 +62,10 @@ header {
 
 .header-login:hover {
     background-color : #4f4e4b ;
+}
+
+.header-login a {
+    color : white;
 }
 
 /*Main*/
@@ -90,7 +93,7 @@ main {
 .mainscreen {
     display: flex;
     justify-content: center;
-    width : 90vw;
+    width : 80vw;
     height : 70vh;
     margin : 0 auto;
     margin-bottom: 2rem;
