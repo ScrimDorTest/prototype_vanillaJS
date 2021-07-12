@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Page</title>
+    <link rel="stylesheet" href="./public/style/profilepage-style.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Encode+Sans+SC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <button class="header-bar"><i class="fas fa-bars"></i></button>
+        <div class="bar-dropdown">
+            <ul>
+                <li>Profile</li>
+                <li>Team</li>
+                <li>Board</li>
+                <li>Setting</li>
+            </ul>
+        </div>
+        <div class="header-logo"><a href="./index.html">ScrimDor</a></div>
+        <button class="header-login"><a href="./sign-in.html">Login</a></button>  
+    </header>
+    <!-- 들어가야할 정보 정리
+    왼쪽에 navbar
+        section 1. 프로필 사진 
+    section 2. 이메일, 아이디, 비밀번호, 매너레벨
+    section 3. 현재 들어있는 팀. 팀 이름, 팀 약자, 
+    -->
+    <!-- 현재 페이지에 하이라이트 하고 싶으면 location.href 사용 -->
+    <nav id="navbar">
+        <ul class="navbar-list">
+            <li><button>My Profile</button></li>
+            <li><button>My Team</button></li>
+            <li><button>Setting</button></li>
+            <li><button>BlaBla</button></li>
+        </ul>
+    </nav>
+    <main id="profile-container">
+        <section id="myprofile-container">
+            <img src="./public/image/myprofile-image.jpg" width="100px" height="100px" alt="profile-image">
+            <div class="myprofile-describe">
+                <h2 class="nickname">닉네임</h2>
+                <h2 class="email">이메일</h2>
+                <div class="manner-level"></div>
+            </div>
+        </section>
+        <section id="myteam-container">
+
+        </section>
+    </main>
+</body>
+</html>
