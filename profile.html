@@ -27,31 +27,36 @@
     </header>
     <!-- 들어가야할 정보 정리
     왼쪽에 navbar
-        section 1. 프로필 사진 
-    section 2. 이메일, 아이디, 비밀번호, 매너레벨
-    section 3. 현재 들어있는 팀. 팀 이름, 팀 약자, 
+    개인 프로필 : 닉네임, 이메일, 비번, 프로필 사진, 시간대, 자기 성향, 주로 하는 게임, 게임하위정보,  
+    팀 프로필 : 가입된 팀, 팀 태그 
     -->
     <!-- 현재 페이지에 하이라이트 하고 싶으면 location.href 사용 -->
-    <nav id="navbar">
-        <ul class="navbar-list">
-            <li><button>My Profile</button></li>
-            <li><button>My Team</button></li>
-            <li><button>Setting</button></li>
-            <li><button>BlaBla</button></li>
-        </ul>
-    </nav>
-    <main id="profile-container">
-        <section id="myprofile-container">
-            <img src="./public/image/myprofile-image.jpg" width="100px" height="100px" alt="profile-image">
-            <div class="myprofile-describe">
-                <h2 class="nickname">닉네임</h2>
-                <h2 class="email">이메일</h2>
-                <div class="manner-level"></div>
-            </div>
-        </section>
-        <section id="myteam-container">
+    <main>
+        <nav id="navbar">
+            <ul class="navbar-list">
+                <li><button>My Profile</button></li>
+                <li><button>My Team</button></li>
+                <li><button>Setting</button></li>
+                <li><button>BlaBla</button></li>
+            </ul>
+        </nav>
+        <div class="profile-container">
+            <section id="myprofile-container">
+                <img src="./public/image/myprofile-image.jpg" alt="profile-image">
+                <div class="myprofile-describe">
+                    <h2 class="nickname">닉네임</h2>
+                    <h2 class="email">이메일</h2>
+                    <div class="manner-level"></div>
+                </div>
+            </section>
+            <section id="myteam-container">
+    
+            </section>
 
-        </section>
+        </div>
     </main>
+
+
+
 </body>
 </html>
