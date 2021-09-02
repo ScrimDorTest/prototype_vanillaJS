@@ -46,7 +46,7 @@ function App() {
         };
         return (
           <div className="list" key={a}>
-            <h3 onClick={()=>{selectChange(a); modalChange(select === a ? !modal :modal);}}>{i}<span onClick={()=>{updateArray(i)}}>👍{thumb[a]}</span></h3>
+            <h3><span onClick={()=>{selectChange(a); modalChange(select === a ? !modal :modal);}}>{i}</span><span onClick={()=>{updateArray(i)}}>👍{thumb[a]}</span></h3>
             <p>2월 19일 발행</p>
           </div>
         );
