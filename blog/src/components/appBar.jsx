@@ -173,8 +173,35 @@ export default function PrimarySearchAppBar() {
           >
             <MenuIcon />
           </IconButton>
-          <Typography onClick={()=>{window.location.href="/"}} className={classes.title} variant="h6" noWrap>
-            ScrimDor
+          <Typography
+            onClick={() => {
+              window.location.href = '/';
+            }}
+            className={classes.title}
+            variant="h6"
+            noWrap
+          >
+            <span style={{ marginRight: '20px' }}>ScrimDor</span>
+          </Typography>
+          <Typography
+            onClick={() => {
+              window.location.href = '/blog';
+            }}
+            className={classes.title}
+            variant="h6"
+            noWrap
+          >
+            <span style={{ marginRight: '20px' }}>Blog</span>
+          </Typography>
+          <Typography
+            onClick={() => {
+              window.location.href = '/shop';
+            }}
+            className={classes.title}
+            variant="h6"
+            noWrap
+          >
+            <span style={{ marginRight: '20px' }}>Shop</span>
           </Typography>
           <div className={classes.search}>
             <div className={classes.searchIcon}>
