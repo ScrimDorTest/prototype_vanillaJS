@@ -32,7 +32,7 @@ const Shop = () => {
             {
               shoes.map((a,i)=>{
                 return(
-                  <ItemList onClick={()=>{window.location.href="/detail"}} a={a} i={i}></ItemList>
+                  <ItemList a={a} i={i}></ItemList>
                 )
               })
             }

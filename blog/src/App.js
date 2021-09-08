@@ -4,7 +4,6 @@ import Blog from './pages/blog';
 import Shop from './pages/shop';
 import DetailPage from './pages/detailPage';
 import './bootstrap.min.css';
-import data from './pages/shop/data';
 
 import { Link, Route, Switch } from 'react-router-dom';
 import PrimarySearchAppBar from './components/appBar';
