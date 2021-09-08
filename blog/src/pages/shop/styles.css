@@ -1,0 +1,8 @@
+.MuiCard-root{
+  background: url('./bike.jpeg');
+  background-position: center;
+}
+
+.MuiPaper-elevation1 {
+  margin: 20;
+}
