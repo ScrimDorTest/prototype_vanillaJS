@@ -1,13 +1,16 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './styles.css';
 import SimpleCard from '../../components/simpleCard';
-import { Grid } from '@material-ui/core';
+import { Button, Grid } from '@material-ui/core';
 import ItemList from '../../components/ItemList';
-import data from './data';
 
-const Shop = () => {
-  
-  const [shoes, shoesChange] = useState(data);
+const Shop = (props) => {
+
+  const sortList = () => {
+    const newArray = [...props.shoes];
+    newArray.sort(function(a,b){ return a.price -b.price;});
+    props.shoesChange(newArray);
+  }
 
   return (
     <div className="Shop">
@@ -30,14 +33,15 @@ const Shop = () => {
             style={{ marginTop: 20 }}
           >
             {
-              shoes.map((a,i)=>{
+              props.shoes.map((a,i)=>{
                 return(
-                  <ItemList a={a} i={i}></ItemList>
+                  <ItemList a={a} i={i} key={i}></ItemList>
                 )
               })
             }
           </Grid>
         </div>
+        <Button onClick={sortList}>정렬</Button>
       </div>
     </div>
   );

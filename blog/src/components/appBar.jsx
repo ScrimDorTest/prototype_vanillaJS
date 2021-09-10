@@ -14,6 +14,7 @@ import AccountCircle from '@material-ui/icons/AccountCircle';
 import MailIcon from '@material-ui/icons/Mail';
 import NotificationsIcon from '@material-ui/icons/Notifications';
 import MoreIcon from '@material-ui/icons/MoreVert';
+import { Link, Route, Switch } from 'react-router-dom';
 
 const useStyles = makeStyles((theme) => ({
   grow: {
@@ -173,35 +174,20 @@ export default function PrimarySearchAppBar() {
           >
             <MenuIcon />
           </IconButton>
-          <Typography
-            onClick={() => {
-              window.location.href = '/';
-            }}
-            className={classes.title}
-            variant="h6"
-            noWrap
-          >
-            <span style={{ marginRight: '20px' }}>ScrimDor</span>
+          <Typography className={classes.title} variant="h6" noWrap>
+            <Link to="/">
+              <span style={{ marginRight: '20px' }}>ScrimDor</span>
+            </Link>
           </Typography>
-          <Typography
-            onClick={() => {
-              window.location.href = '/blog';
-            }}
-            className={classes.title}
-            variant="h6"
-            noWrap
-          >
-            <span style={{ marginRight: '20px' }}>Blog</span>
+          <Typography className={classes.title} variant="h6" noWrap>
+            <Link to="/blog">
+              <span style={{ marginRight: '20px' }}>Blog</span>
+            </Link>
           </Typography>
-          <Typography
-            onClick={() => {
-              window.location.href = '/shop';
-            }}
-            className={classes.title}
-            variant="h6"
-            noWrap
-          >
-            <span style={{ marginRight: '20px' }}>Shop</span>
+          <Typography className={classes.title} variant="h6" noWrap>
+            <Link to="/shop">
+              <span style={{ marginRight: '20px' }}>Shop</span>
+            </Link>
           </Typography>
           <div className={classes.search}>
             <div className={classes.searchIcon}>
