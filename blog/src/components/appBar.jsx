@@ -174,17 +174,17 @@ export default function PrimarySearchAppBar() {
           >
             <MenuIcon />
           </IconButton>
-          <Typography className={classes.title} variant="h6" noWrap>
+          <Typography className="nav" variant="h6" noWrap>
             <Link to="/">
               <span style={{ marginRight: '20px' }}>ScrimDor</span>
             </Link>
           </Typography>
-          <Typography className={classes.title} variant="h6" noWrap>
+          <Typography className="nav" variant="h6" noWrap>
             <Link to="/blog">
               <span style={{ marginRight: '20px' }}>Blog</span>
             </Link>
           </Typography>
-          <Typography className={classes.title} variant="h6" noWrap>
+          <Typography className="nav" variant="h6" noWrap>
             <Link to="/shop">
               <span style={{ marginRight: '20px' }}>Shop</span>
             </Link>
