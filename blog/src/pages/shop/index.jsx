@@ -47,9 +47,14 @@ const Shop = (props) => {
             variant="contained"
             color="primary"
             onClick={() => {
-              axios.get('https://codingapple1.github.io/shop/data2.json')
-              .then((result)=>{props.shoesChange([...props.shoes, ...result.data])})
-              .catch(()=>{console.log('실패')})
+              axios
+                .get('https://codingapple1.github.io/shop/data2.json')
+                .then((result) => {
+                  props.shoesChange([...props.shoes, ...result.data]);
+                })
+                .catch(() => {
+                  console.log('실패');
+                });
             }}
           >
             더보기
