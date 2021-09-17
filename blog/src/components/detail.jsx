@@ -12,18 +12,19 @@ const Box = styled.div`
 
 const Detail = (props) => {
   const [alert, alertChange] = useState(true);
-  const [input, inputChange] = useState('');
 
-  useEffect(()=>{
+  useEffect(() => {
     console.log('detail 켜짐');
-  },[])
+  }, []);
 
   useEffect(() => {
     let timer = setTimeout(() => {
       alertChange(false);
     }, 2000);
-    return ()=>{ clearTimeout(timer)}
-  },[]);
+    return () => {
+      clearTimeout(timer);
+    };
+  }, []);
 
   const { id } = useParams();
   const history = useHistory();
@@ -34,8 +35,6 @@ const Detail = (props) => {
   return (
     <div className="container">
       <Box className="white">Detail</Box>
-      {input}
-    <input onChange={(e)=>{inputChange(e.target.value)}} />
       {alert === true ? (
         <div className="my-alert">
           <p>재고가 얼마 남지 않았습니다!</p>
@@ -55,7 +54,17 @@ const Detail = (props) => {
           <h4 className="pt-5">{b.title}</h4>
           <p>{b.content}</p>
           <p>{b.price}원</p>
-          <button className="btn btn-danger">주문하기</button>
+          <Info stock={props.stock} b={b}></Info>
+          <button
+            className="btn btn-danger"
+            onClick={() => {
+              const newArray = [...props.stock];
+              newArray[b.id] = newArray[b.id] - 1;
+              props.stockChange(newArray);
+            }}
+          >
+            주문하기
+          </button>
           <button
             className="btn btn-danger"
             onClick={() => {
@@ -68,6 +77,11 @@ const Detail = (props) => {
       </div>
     </div>
   );
+};
+
+const Info = (props) => {
+  
+  return <p>재고 : {props.stock[props.b.id]} </p>;
 };
 
 export default Detail;

@@ -47,7 +47,7 @@ function Blog() {
         return (
           <div className="list" key={a}>
             <h3>
-              <span onClick={()=>{modalChange(select === a ? !modal :modal ? modal : !modal); selectChange(a); }}>{i}</span>
+              <span onClick={()=>{modalChange(select === a ? !modal :modal ? modal : !modal); selectChange(a); console.log(modal) }}>{i}</span>
               {/* modal이 false일 때 다른 select 값을 고르면 modal값이 true로 바뀌지 않고 select값만 바뀌는 것을 방지하기 위한 코드 */}
               <span onClick={()=>{thumbsUp(i)}}>👍{thumb[a]}</span></h3>
             <p>2월 19일 발행</p>

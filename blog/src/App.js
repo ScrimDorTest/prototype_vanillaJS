@@ -11,6 +11,7 @@ import PrimarySearchAppBar from './components/appBar';
 
 function App() {
   const [shoes, shoesChange] = useState(data);
+  const [stock, stockChange] = useState([10,11,12]);
 
   return (
     <>
@@ -24,9 +25,9 @@ function App() {
           <Shop shoes={shoes} shoesChange={shoesChange} />
         </Route>
         <Route path="/detail/:id">
-          <Detail shoes={shoes} />
+          <Detail shoes={shoes} stock={stock} stockChange={stockChange} />
         </Route>
-        <Route path={"/:"+shoes.id}>
+        <Route path="/:id">
           <h1>not found 404</h1>
         </Route>
         <Route path="/">

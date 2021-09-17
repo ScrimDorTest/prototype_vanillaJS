@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './styles.css';
 import SimpleCard from '../../components/simpleCard';
 import { Button, Grid } from '@material-ui/core';
@@ -13,6 +13,7 @@ const Shop = (props) => {
     });
     props.shoesChange(newArray);
   };
+  const [load, loadChange] = useState(false);
 
   return (
     <div className="Shop">
@@ -43,22 +44,36 @@ const Shop = (props) => {
           <Button variant="contained" color="secondary" onClick={sortList}>
             정렬
           </Button>
+          {load === true ? <h2>로딩중...</h2> : null}
           <Button
             variant="contained"
             color="primary"
             onClick={() => {
+<<<<<<< Updated upstream
               axios
                 .get('https://codingapple1.github.io/shop/data2.json')
                 .then((result) => {
                   props.shoesChange([...props.shoes, ...result.data]);
                 })
                 .catch(() => {
+=======
+              loadChange(true);
+              axios
+                .get('https://codingapple1.github.io/shop/data2.json')
+                .then((result) => {
+                  loadChange(false);
+                  props.shoesChange([...props.shoes, ...result.data]);
+                })
+                .catch(() => {
+                  loadChange(false);
+>>>>>>> Stashed changes
                   console.log('실패');
                 });
             }}
           >
             더보기
           </Button>
+          
         </div>
       </div>
     </div>
