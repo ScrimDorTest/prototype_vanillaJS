@@ -1,10 +1,12 @@
 import React, {useState}from 'react';
 import './App.css';
-import Blog from './pages/blog';
-import Shop from './pages/shop';
-import Detail from './components/Detail';
 import './bootstrap.min.css';
-import data from './pages/shop/data';
+import Blog from './pages/Blog';
+import Shop from './pages/Shop';
+import Detail from './components/Detail';
+import Cart from './components/Cart';
+
+import data from './pages/Shop/data';
 
 import { Link, Route, Switch } from 'react-router-dom';
 import PrimarySearchAppBar from './components/appBar';
