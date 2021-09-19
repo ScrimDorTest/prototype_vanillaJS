@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { useHistory, useParams } from 'react-router-dom';
 import styled from 'styled-components';
-import './Detail.scss';
+import CustomTabs from '../CustomTabs';
+import { CSSTransition } from 'react-transition-group';
+import './styles.scss';
 
 const Box = styled.div`
   padding: 20px;
@@ -12,6 +14,8 @@ const Box = styled.div`
 
 const Detail = (props) => {
   const [alert, alertChange] = useState(true);
+  const [tab, setTab] = useState(2);
+  const [trans, setTrans] = useState(false);
 
   useEffect(() => {
     console.log('detail 켜짐');
@@ -75,12 +79,31 @@ const Detail = (props) => {
           </button>
         </div>
       </div>
+
+      <CustomTabs setTab={setTab} setTrans={setTrans} />
+      <CSSTransition in={trans} classNames="wow" timeout={500}>
+        <TabContent tab={tab} setTrans={setTrans} />
+      </CSSTransition>
     </div>
   );
 };
 
-const Info = (props) => {
+const TabContent = (props) => {
   
+  useEffect(() => {
+    props.setTrans(true);
+  });
+
+  return (
+    <>
+      {props.tab === 0 ? <div>1번 탭이에요!</div> : null}
+      {props.tab === 1 ? <div>2번 탭이에요!</div> : null}
+      {props.tab === 2 ? <div>3번 탭이에요!</div> : null}
+    </>
+  );
+};
+
+const Info = (props) => {
   return <p>재고 : {props.stock[props.b.id]} </p>;
 };
 

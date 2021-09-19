@@ -1,5 +1,13 @@
 $MainColor: #ffffff;
 
+.wow-enter {
+  opacity: 0;
+}
+.wow-enter-active {
+  opacity: 1;
+  transition: all 500ms;
+}
+
 @mixin white() {
   background: #eeeeee;
   padding: 15px;

@@ -19,7 +19,6 @@ function Blog() {
     titleChange(newArray);
   };
   const addList = () => {
-    
     var newArray = [...title];
     newArray.unshift(write);
     titleChange(newArray);

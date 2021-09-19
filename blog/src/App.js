@@ -2,7 +2,7 @@ import React, {useState}from 'react';
 import './App.css';
 import Blog from './pages/blog';
 import Shop from './pages/shop';
-import Detail from './components/detail';
+import Detail from './components/Detail';
 import './bootstrap.min.css';
 import data from './pages/shop/data';
 
@@ -15,14 +15,14 @@ function App() {
 
   return (
     <>
-      <PrimarySearchAppBar></PrimarySearchAppBar>
+      <PrimarySearchAppBar />
 
       <Switch>
         <Route path="/blog">
           <Blog />
         </Route>
         <Route path="/shop">
-          <Shop shoes={shoes} shoesChange={shoesChange} />
+          <Shop shoes={shoes} shoesChange={shoesChange} stock={stock} stockChange={stockChange} />
         </Route>
         <Route path="/detail/:id">
           <Detail shoes={shoes} stock={stock} stockChange={stockChange} />
