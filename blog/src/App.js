@@ -23,6 +23,9 @@ function App() {
         <Route path="/blog">
           <Blog />
         </Route>
+        <Route path="/cart">
+          <Cart />
+        </Route>
         <Route path="/shop">
           <Shop shoes={shoes} shoesChange={shoesChange} stock={stock} stockChange={stockChange} />
         </Route>
