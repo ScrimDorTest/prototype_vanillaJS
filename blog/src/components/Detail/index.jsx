@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import CustomTabs from '../CustomTabs';
 import { CSSTransition } from 'react-transition-group';
 import './styles.scss';
+import { connect } from 'react-redux';
 
 const Box = styled.div`
   padding: 20px;
@@ -60,7 +61,7 @@ const Detail = (props) => {
           <p>{b.price}원</p>
           <Info stock={props.stock} b={b}></Info>
           <button
-            className="btn btn-danger"
+            className="btn btn-success"
             onClick={() => {
               const newArray = [...props.stock];
               newArray[b.id] = newArray[b.id] - 1;
@@ -68,6 +69,15 @@ const Detail = (props) => {
             }}
           >
             주문하기
+          </button>
+          <button
+            className="btn btn-success"
+            onClick={() => {
+              props.dispatch( { type: '장바구니', payload: {id:4, name: b.title , quan: props.stock[b.id]}});
+              history.push('/cart');
+            }}
+          >
+            장바구니
           </button>
           <button
             className="btn btn-danger"
@@ -107,4 +117,12 @@ const Info = (props) => {
   return <p>재고 : {props.stock[props.b.id]} </p>;
 };
 
-export default Detail;
+function ReduxState(state) {
+  console.log(state);
+  return {
+    cartState: state.reducer1,
+    alertState: state.reducer2,
+  };
+}
+
+export default connect(ReduxState)(Detail);
