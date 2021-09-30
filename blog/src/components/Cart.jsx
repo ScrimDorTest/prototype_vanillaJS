@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { useState } from 'react';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
@@ -9,10 +9,11 @@ import Paper from '@mui/material/Paper';
 import { connect, useDispatch, useSelector } from 'react-redux';
 
 const Cart = (props) => {
+  let [currentTab, setTab] = useState('탭1');
 
- let state = useSelector((state)=> state.reducer1);
- let alertState = useSelector((state)=> state.reducer2);
- let dispatch = useDispatch();
+  let state = useSelector((state) => state.reducer1);
+  let alertState = useSelector((state) => state.reducer2);
+  let dispatch = useDispatch();
 
   return (
     <div>
@@ -60,7 +61,7 @@ const Cart = (props) => {
           </TableBody>
         </Table>
       </TableContainer>
-      {alertState === true ? (
+      {alertState === true && (
         <div className="my-alert">
           <p>지금 구매하시면 신규할인 90%</p>
           <button
@@ -71,7 +72,19 @@ const Cart = (props) => {
             닫기
           </button>
         </div>
-      ) : null}
+      )}
+      <div>
+        <button onClick={()=>{setTab('탭1')}}>탭1</button>
+        <button onClick={()=>{setTab('탭2')}}>탭2</button>
+        <button onClick={()=>{setTab('탭3')}}>탭3</button>
+        {
+          {
+            탭1: <p>1번탭입니다</p>,
+            탭2: <p>2번탭입니다</p>,
+            탭3: <p>3번탭입니다</p>,
+          }[currentTab]
+        }
+      </div>
     </div>
   );
 };

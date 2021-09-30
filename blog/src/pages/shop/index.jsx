@@ -44,7 +44,7 @@ const Shop = (props) => {
           <Button variant="contained" color="secondary" onClick={sortList}>
             정렬
           </Button>
-          {load === true ? <h2>로딩중...</h2> : null}
+          {load === true && <h2>로딩중...</h2>}
           <Button
             variant="contained"
             color="primary"

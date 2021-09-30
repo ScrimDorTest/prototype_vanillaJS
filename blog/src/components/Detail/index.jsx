@@ -5,6 +5,7 @@ import CustomTabs from '../CustomTabs';
 import { CSSTransition } from 'react-transition-group';
 import './styles.scss';
 import { connect } from 'react-redux';
+import Testing from '../Testing';
 
 const Box = styled.div`
   padding: 20px;
@@ -112,9 +113,10 @@ const TabContent = (props) => {
 
   return (
     <>
-      {props.tab === 0 ? <div>1번 탭이에요!</div> : null}
-      {props.tab === 1 ? <div>2번 탭이에요!</div> : null}
-      {props.tab === 2 ? <div>3번 탭이에요!</div> : null}
+      {props.tab === 0 && <div>1번 탭이에요!</div>}
+      {props.tab === 1 && <div>2번 탭이에요!</div>}
+      {props.tab === 2 && <div>3번 탭이에요!</div>}
+      <Testing 이름="존박" 나이="20"></Testing>
     </>
   );
 };

@@ -62,7 +62,7 @@ function Blog() {
 
       <button onClick={() => {modalChange(!modal)}}>모달 토글</button>
 
-      {modal === true ? <Modal title={title} select={select}></Modal> : null}
+      {modal === true && <Modal title={title} select={select}></Modal>}
     </div>
   );
 }
