@@ -7,16 +7,25 @@ let defaultData = [
 function reducer1(state = defaultData, action) {
   if (action.type === '장바구니') {
     let newArray = [...state];
-    newArray.push(action.payload);
-    return newArray;
+    if (
+      newArray.filter((v) => {
+        return v.id === action.payload.id;
+      }).length > 0
+    ) {
+      newArray[3].quan++;
+      return newArray;
+    } else {
+      newArray.push(action.payload);
+      return newArray;
+    }
   } else if (action.type === '수량증가') {
     let newArray = [...state];
-    newArray[0].quan++;
+    action.임시.quan++;
     return newArray;
   } else if (action.type === '수량감소') {
     let newArray = [...state];
-    if (newArray[0].quan > 0) {
-      newArray[0].quan--;
+    if (action.임시.quan > 0) {
+      action.임시.quan--;
     }
     return newArray;
   } else {

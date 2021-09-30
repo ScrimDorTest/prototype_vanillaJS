@@ -73,7 +73,14 @@ const Detail = (props) => {
           <button
             className="btn btn-success"
             onClick={() => {
-              props.dispatch( { type: '장바구니', payload: {id:4, name: b.title , quan: props.stock[b.id]}});
+              props.dispatch({
+                type: '장바구니',
+                payload: {
+                  id: b.id + 3,
+                  name: b.title,
+                  quan: props.stock[b.id],
+                },
+              });
               history.push('/cart');
             }}
           >
@@ -99,7 +106,6 @@ const Detail = (props) => {
 };
 
 const TabContent = (props) => {
-  
   useEffect(() => {
     props.setTrans(true);
   });

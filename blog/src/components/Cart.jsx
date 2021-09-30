@@ -6,9 +6,14 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
-import { connect } from 'react-redux';
+import { connect, useDispatch, useSelector } from 'react-redux';
 
 const Cart = (props) => {
+
+ let state = useSelector((state)=> state.reducer1);
+ let alertState = useSelector((state)=> state.reducer2);
+ let dispatch = useDispatch();
+
   return (
     <div>
       <TableContainer sx={{ maxWidth: 1000 }} component={Paper}>
@@ -22,7 +27,7 @@ const Cart = (props) => {
             </TableRow>
           </TableHead>
           <TableBody>
-            {props.state.map((row, i) => (
+            {state.map((row, i) => (
               <TableRow
                 key={row.name}
                 sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
@@ -35,7 +40,7 @@ const Cart = (props) => {
                 <TableCell align="right">
                   <button
                     onClick={() => {
-                      props.dispatch({ type: '수량증가' });
+                      dispatch({ type: '수량증가', 임시: row });
                     }}
                   >
                     {' '}
@@ -43,7 +48,7 @@ const Cart = (props) => {
                   </button>
                   <button
                     onClick={() => {
-                      props.dispatch({ type: '수량감소' });
+                      dispatch({ type: '수량감소', 임시: row });
                     }}
                   >
                     {' '}
@@ -55,12 +60,12 @@ const Cart = (props) => {
           </TableBody>
         </Table>
       </TableContainer>
-      {props.alertState === true ? (
+      {alertState === true ? (
         <div className="my-alert">
           <p>지금 구매하시면 신규할인 90%</p>
           <button
             onClick={() => {
-              props.dispatch({ type: '닫기' });
+              dispatch({ type: '닫기' });
             }}
           >
             닫기
@@ -71,12 +76,4 @@ const Cart = (props) => {
   );
 };
 
-function ReduxState(state) {
-  console.log(state);
-  return {
-    state: state.reducer1,
-    alertState: state.reducer2,
-  };
-}
-
-export default connect(ReduxState)(Cart);
+export default Cart;
