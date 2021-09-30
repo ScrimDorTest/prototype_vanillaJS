@@ -14,6 +14,8 @@ const Shop = (props) => {
     props.shoesChange(newArray);
   };
   const [load, loadChange] = useState(false);
+  var 로컬확인 = localStorage.getItem('watched');
+  var 확인한상품 = JSON.parse(로컬확인);
 
   return (
     <div className="Shop">
@@ -55,7 +57,8 @@ const Shop = (props) => {
                 .then((result) => {
                   loadChange(false);
                   props.shoesChange([...props.shoes, ...result.data]);
-                  props.stockChange([...props.stock, 10,7,8]);
+                  props.stockChange([...props.stock, 10, 7, 8]);
+                  console.log(확인한상품);
                 })
                 .catch(() => {
                   loadChange(false);
@@ -65,8 +68,24 @@ const Shop = (props) => {
           >
             더보기
           </Button>
-          
         </div>
+        {props.shoes.map((shoes, i) => {
+          return (
+            <p>
+              {확인한상품 == null ? (
+                localStorage.setItem('watched', JSON.stringify([]))
+              ) : (
+                <p>
+                  {확인한상품.findIndex((v) => {
+                    return v == shoes.id;
+                  }) >= 0 ? (
+                    <p>{shoes.title}</p>
+                  ) : null}
+                </p>
+              )}
+            </p>
+          );
+        })}
       </div>
     </div>
   );

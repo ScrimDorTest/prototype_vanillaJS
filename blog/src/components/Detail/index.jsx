@@ -15,13 +15,15 @@ const Box = styled.div`
 `;
 
 const Detail = (props) => {
-  const [alert, alertChange] = useState(true);
-  const [tab, setTab] = useState(2);
-  const [trans, setTrans] = useState(false);
+  let [alert, alertChange] = useState(true);
+  let [tab, setTab] = useState(2);
+  let [trans, setTrans] = useState(false);
 
-  useEffect(() => {
-    console.log('detail 켜짐');
-  }, []);
+  const { id } = useParams();
+  const history = useHistory();
+  const b = props.shoes.find(function (a) {
+    return a.id == id;
+  });
 
   useEffect(() => {
     let timer = setTimeout(() => {
@@ -32,11 +34,19 @@ const Detail = (props) => {
     };
   }, []);
 
-  const { id } = useParams();
-  const history = useHistory();
-  const b = props.shoes.find(function (a) {
-    return a.id == id;
-  });
+  useEffect(() => {
+    var arr = localStorage.getItem('watched');
+    if (arr == null) {
+      arr = [];
+    } else {
+      arr = JSON.parse(arr);
+    }
+
+    arr.push(id);
+    arr = new Set(arr);
+    arr = [...arr];
+    localStorage.setItem('watched', JSON.stringify(arr));
+  }, []);
 
   return (
     <div className="container">
