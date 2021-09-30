@@ -8,17 +8,6 @@ import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import { connect } from 'react-redux';
 
-function createData(name, calories, fat, carbs, protein) {
-  return { name, calories, fat, carbs, protein };
-}
-
-const rows = [
-  createData('Frozen yoghurt', 159, 6.0, 24, 4.0),
-  createData('Ice cream sandwich', 237, 9.0, 37, 4.3),
-  createData('Eclair', 262, 16.0, 24, 6.0),
-  createData('Cupcake', 305, 3.7, 67, 4.3),
-];
-
 const Cart = (props) => {
   return (
     <TableContainer sx={{ maxWidth: 1000 }} component={Paper}>
@@ -42,7 +31,24 @@ const Cart = (props) => {
               </TableCell>
               <TableCell align="right">{row.name}</TableCell>
               <TableCell align="right">{row.quan}</TableCell>
-              <TableCell align="right">O</TableCell>
+              <TableCell align="right">
+                <button
+                  onClick={() => {
+                    props.dispatch({ type: '수량증가' });
+                  }}
+                >
+                  {' '}
+                  +{' '}
+                </button>
+                <button
+                  onClick={() => {
+                    props.dispatch({ type: '수량감소' });
+                  }}
+                >
+                  {' '}
+                  -{' '}
+                </button>
+              </TableCell>
             </TableRow>
           ))}
         </TableBody>
